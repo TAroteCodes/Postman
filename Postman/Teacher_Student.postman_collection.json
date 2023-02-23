@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "d3606721-7c2b-4703-a0b5-b868bcb94b35",
+		"name": "Teacher_Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24340979"
+	},
+	"item": [
+		{
+			"name": "List All Teachers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create a teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"id\": 209,\r\n            \"firstName\": \"Kumar\",\r\n            \"lastName\": \"Babu\",\r\n            \"age\": 35,\r\n            \"email\": \"baule@xyz.com\",\r\n            \"class\": 8,\r\n            \"students\": [\r\n                {\r\n                    \"studentid\": 5,\r\n                    \"firstName\": \"mari\",\r\n                    \"lastName\": \"appan\",\r\n                    \"age\": 21,\r\n                    \"gender\": \"male\"\r\n                },\r\n                {\r\n                    \"studentid\": 6,\r\n                    \"firstName\": \"karan\",\r\n                    \"lastName\": \"Rajan\",\r\n                    \"age\": 23,\r\n                    \"gender\": \"male\"\r\n                }\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get teacher by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/210",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						"210"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a teacher",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"id\": 205,\r\n            \"firstName\": \"Altered\",\r\n            \"lastName\": \"Babu\",\r\n            \"age\": 35,\r\n            \"email\": \"altered@xyz.com\",\r\n            \"class\": 8,\r\n            \"students\": [\r\n                {\r\n                    \"studentid\": 5,\r\n                    \"firstName\": \"mari\",\r\n                    \"lastName\": \"appan\",\r\n                    \"age\": 21,\r\n                    \"gender\": \"male\"\r\n                },\r\n                {\r\n                    \"studentid\": 6,\r\n                    \"firstName\": \"karan\",\r\n                    \"lastName\": \"Rajan\",\r\n                    \"age\": 23,\r\n                    \"gender\": \"male\"\r\n                }\r\n            ]\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/200",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletes an Extisting Teacher",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/200",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Teachers",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Students by Teacher ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://97mm2.sse.codesandbox.io/teachers/200/students/1",
+					"protocol": "https",
+					"host": [
+						"97mm2",
+						"sse",
+						"codesandbox",
+						"io"
+					],
+					"path": [
+						"teachers",
+						"200",
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

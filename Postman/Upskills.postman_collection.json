@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "c7bdd4e6-8ecc-4c7a-aaed-2787046f4e22",
+		"name": "Upskills",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24340979"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const box = pm.response.json();\r",
+							"pm.globals.set(\"AT\",box.data.access_token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c2hvcHBpbmdfb2F1dGhfY2xpZW50OnNob3BwaW5nX29hdXRoX3NlY3JldA==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/oauth2/token/client_credentials",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"oauth2",
+						"token",
+						"client_credentials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstname\": \"sam\",\r\n  \"lastname\": \"yz\",\r\n  \"email\": \"pswapnil032@gmail.com\",\r\n  \"password\": \"password123\",\r\n  \"confirm\": \"password123\",\r\n  \"telephone\": \"1-541-754-3015\",\r\n  \"customer_group_id\": \"1\",\r\n  \"agree\": \"1\",\r\n  \"custom_field\": {\r\n    \"account\": {\r\n      \"1\": \"+364545454\"\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/register",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pswapnil032@gmail.com\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/login",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"email\": \"pswapnil032@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/forgotten",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"forgotten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/logout",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/account",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Account Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AT}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstname\": \"Swapnil\",\r\n  \"lastname\": \"Power\",\r\n  \"email\": \"Pswapnil0032@gmail.com\",\r\n  \"telephone\": \"1-541-754-3015\",\r\n  \"custom_field\": {\r\n    \"account\": {\r\n      \"1\": \"+364545454\"\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://rest-api.upskills.in/api/rest/account",
+					"protocol": "http",
+					"host": [
+						"rest-api",
+						"upskills",
+						"in"
+					],
+					"path": [
+						"api",
+						"rest",
+						"account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
